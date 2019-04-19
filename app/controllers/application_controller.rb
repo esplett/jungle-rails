@@ -29,4 +29,18 @@ class ApplicationController < ActionController::Base
     cookies[:cart]
   end
 
+  # Prevent CSRF attacks by raising an exception.
+  # For APIs, you may want to use :null_session instead.
+  protect_from_forgery with: :exception
+  # look up user if logged in and save to @current_user
+  def current_user
+    @current_user ||= User.find(session[:user_id]) if session[:user_id]
+  end
+  #allows use of @current_user in view files
+  helper_method :current_user
+  #sends user to login page if not logged in
+  def authorize
+    redirect_to '/login' unless current_user
+  end
+
 end

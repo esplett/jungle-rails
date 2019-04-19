@@ -22,11 +22,30 @@
           <ul class="dropdown-menu">
             <% Category.all.each do |category| %>
               <li><%= link_to category.name, category %></li>
-            <% end %>
+            <% end %>  def new
+          end
+      
+          def create
+          end   
+      
           </ul>
         </li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
+      <li class="dropdown">
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+
+        <%= fa_icon 'paw', text: 'My Account' %>
+          <span class="caret"></span>
+        </a>
+        <ul class="dropdown-menu">
+          <li><%= link_to 'Register', [:users, :signup] %></li>
+          <li><%= link_to 'Login',  [:sessions, :login] %></li>
+          <li><%= link_to 'Logout',  [:sessions, :logout] %></li>
+         
+        </ul>
+      </li>
+    
        <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
 
