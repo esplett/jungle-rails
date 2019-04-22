@@ -15,7 +15,7 @@ RSpec.describe Product, type: :model do
   end 
 
   describe 'Validations' do
-    it 'is not valid without a name' do
+    it 'is not valid without a name' dooduct Validat
       @category = Category.new
       @category.name = 'Electronics'
       @category.save!
